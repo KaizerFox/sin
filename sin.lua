@@ -4435,7 +4435,7 @@ function chatfunc(text)
 	end)
 	shk()
 	for i = 1,string.len(text),1 do
-	CFuncs.Sound.Create("rbxassetid://358280695", Torso, 2, 0.5)
+	CFuncs.Sound.Create("rbxassetid://358280695", Torso, 4, 0.5)
 	tecks2.Text = string.sub(text,1,i)
 	wait(0.01)
 	end
