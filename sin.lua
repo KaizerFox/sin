@@ -4435,7 +4435,7 @@ function chatfunc(text)
 	end)
 	shk()
 	for i = 1,string.len(text),1 do
-	CFuncs.Sound.Create("rbxassetid://358280695", Torso, 10, 0.5)
+	CFuncs.Sound.Create("rbxassetid://358280695", Torso, 100, 0.5)
 	tecks2.Text = string.sub(text,1,i)
 	wait(0.01)
 	end
@@ -4447,7 +4447,7 @@ function chatfunc(text)
 	tecks2.TextStrokeTransparency = tecks2.TextStrokeTransparency +.2
 	tecks2.TextTransparency = tecks2.TextTransparency + .2
 	end
-	naeeym2:Destroy()
+	naeeym2.Text = "s i n"
 	end)
 	chat()
 	end
