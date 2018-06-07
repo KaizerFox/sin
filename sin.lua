@@ -4447,7 +4447,9 @@ function chatfunc(text)
 	tecks2.TextStrokeTransparency = tecks2.TextStrokeTransparency +.2
 	tecks2.TextTransparency = tecks2.TextTransparency + .2
 	end
+	wait()
 	naeeym2.Text = "s i n"
+	tecks2.Text = "s i n"
 	end)
 	chat()
 	end
