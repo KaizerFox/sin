@@ -4457,11 +4457,12 @@ function chatfunc(text)
 	Player.Chatted:connect(onChatted)
 
 --192892790
-local sick = Instance.new("Sound",Character)
+sick = Instance.new("Sound",Character)
 sick.SoundId = "rbxassetid://608726256"
 sick.Looped = true
 sick.Pitch = 1
 sick.Volume = 1
+sick.Name = "sick"
 sick:Play()
 
 chatfunc("i am your worst night mare")
