@@ -4448,8 +4448,7 @@ function chatfunc(text)
 	tecks2.TextTransparency = tecks2.TextTransparency + .2
 	end
 	wait()
-	naeeym2.Text = "s i n"
-	tecks2.Text = "s i n"
+	naeeym2:Destroy()
 	end)
 	chat()
 	end
