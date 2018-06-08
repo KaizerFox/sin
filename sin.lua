@@ -4128,10 +4128,8 @@ mot = New("Weld",Hitbox2,"mot",{Part0 = Hitbox2,Part1 = Sphere2,C0 = CFrame.new(
 Hitbox3 = New("Part",RuinedHand3,"Hitbox",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.225023165, 4.50000048, 4.42007256),CFrame = CFrame.new(-45.8067703, 2.15377712, 2.25294924, 0, 1, 0, 0.000304999994, 0, -1, -1, 0, -0.000304999994),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Hitbox3,"Mesh",{Scale = Vector3.new(1, 0.945098102, 1),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Hitbox3,"mot",{Part0 = Hitbox3,Part1 = Sphere3,C0 = CFrame.new(0, 0, 0, -1.62422657e-006, 1.62458491e-006, -0.999998808, 1.00000715, -2.0038101e-006, 6.18398133e-007, -2.74038939e-007, -1.00000226, -2.92566966e-007),C1 = CFrame.new(0.0275506973, -0.00451803207, 0.0296287537, 1, 5.81144241e-006, -1.43646939e-005, -5.76079674e-006, 0.999993801, 0.00352320028, 1.43850802e-005, -0.00352320028, 0.999993801),})
-
-chatfunc("s i n c a n t d i e")
-	
 --
+	
 coroutine.resume(coroutine.create(function(Part,Weld)
 while Part.Parent~=nil do
 wait(5)
@@ -4662,7 +4660,7 @@ if attack == false then
 	if revive == false and looprevive == false then
 Humanoid.Health = math.huge
 chatfunc("boi")
-Ohgreatfuckeryoujustfuckingcommitedsuicideohwaitdidumeanallahuakbarohyesumean911oyesilykit()
+Ohgreatfuckeryoujustfuckingedsuicideohwaitdidumeanallahuakbarohyesumean911oyesilykit()
 end
 end
 end
