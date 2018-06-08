@@ -3246,7 +3246,7 @@ Humanoid.WalkSpeed = Humanoid.WalkSpeed + 10
 ref:Remove()
 attack = false
 end
-Ohgreatfuckeryoujustfuckingcommitedsuicideohwaitdidumeanallahuakbarohyesumean911oyesilykit = function()-- rude
+Ohgreatfuckeryoujustfuckingedsuicideohwaitdidumeanallahuakbarohyesumean911oyesilykit = function()-- rude
 attack = true
 --Models:Remove()
 wait(.1)
@@ -3255,6 +3255,8 @@ local eyesz = New("Part",Models,"eye",{BrickColor = BrickColor.new("Really red")
 Meshs = New("SpecialMesh",eyesz,"Mesh",{MeshType = Enum.MeshType.Sphere,})
 mots = New("Weld",eyesz,"mot",{Part0 = eyesz,Part1 = Head,C0 = CFrame.new(0, 0, 0, -1.00000036, -3.95501265e-005, 2.98024041e-008, 3.95500101e-005, -1.00000024, -3.24078958e-012, -5.96046945e-008, -4.44026066e-011, 1),C1 = CFrame.new(0.0999984741, 0.230003357, -0.54234314, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
 
+chatfunc("s i n c a n t d i e")
+	
 local eye = New("Part",Models,"eye",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.Granite,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-56.0288696, 1.56154633, -44.791954, 0, 3.89999987e-005, 1, 0, -1, 3.89999987e-005, 1, -0, 0),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",eye,"Mesh",{Scale = Vector3.new(0.200000003, 1, 1),MeshType = Enum.MeshType.Cylinder,})
 mot = New("Weld",eye,"mot",{Part0 = eye,Part1 = Head,C0 = CFrame.new(0, 0, 0, 0, 0, 1, 3.89999987e-005, -1, 0, 1, 3.89999987e-005, 0),C1 = CFrame.new(0.0999984741, 0.230003357, -0.582336426, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
@@ -3273,6 +3275,9 @@ mot = New("Weld",eye,"mot",{Part0 = eye,Part1 = Head,C0 = CFrame.new(0, 0, 0, 0,
 local eye1 = New("Part",Models,"eye1",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.Granite,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-56.0288696, 1.56154633, -44.8119507, -1.00000036, 3.95500101e-005, -5.96046945e-008, -3.95501265e-005, -1.00000024, -4.44026066e-011, 2.98024041e-008, -3.24078958e-012, 1),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",eye1,"Mesh",{Scale = Vector3.new(0.3, 0.8, 0.9),MeshType = Enum.MeshType.Sphere,})
 mot = New("Weld",eye1,"mot",{Part0 = eye1,Part1 = Head,C0 = CFrame.new(0, 0, 0, -1.00000036, -3.95501265e-005, 2.98024041e-008, 3.95500101e-005, -1.00000024, -3.24078958e-012, -5.96046945e-008, -4.44026066e-011, 1),C1 = CFrame.new(0.0999984741, 0.230003357, -0.562339783, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
+
+chatfunc("e v i l c a n t b e d e s t o r i e d")
+	
 --
 
 
@@ -3492,6 +3497,8 @@ mot = New("Weld",Handle1,"mot",{Part0 = Handle1,Part1 = W3d1,C0 = CFrame.new(0, 
 Handle1 = New("Part",RuinedHand1,"Handle1",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.225023165, 0.200000003, 3.0999999),CFrame = CFrame.new(-14.5724773, 6.17995501, 33.9879723, -0.00729529932, -0.707107425, 0.707070291, 0.00352302007, -0.707102239, -0.707102716, 0.999967515, -0.00266753719, 0.00764967036),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Handle1,"Mesh",{MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Handle1,"mot",{Part0 = Handle1,Part1 = W3d1,C0 = CFrame.new(0, 0, 0, -0.00729530444, 0.00352300098, 0.999967217, -0.70710665, -0.70710218, -0.00266752392, 0.707069576, -0.707102716, 0.00764966197),C1 = CFrame.new(1.13122368, 0.990283489, -0.0149307251, 0.999973595, 0, 0.00729339523, 2.55640462e-005, 0.999993861, -0.00350500271, -0.00729334867, 0.00350509607, 0.999967337),})
+
+chatfunc("i f y o u d e s t r o y e v i l")
 
 
 
@@ -4113,6 +4120,8 @@ Handle2 = New("Part",RuinedHand3,"Handle2",{BrickColor = BrickColor.new("Really 
 Mesh = New("SpecialMesh",Handle2,"Mesh",{Scale = Vector3.new(1.02999997, 0.747730851, 1.00999999),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Handle2,"mot",{Part0 = Handle2,Part1 = W3d3,C0 = CFrame.new(0, 0, 0, -0.0456920154, -0.786244273, 0.616224229, -0.0515019596, 0.61790216, 0.784566402, -0.997627139, 0.00411166577, -0.0687263161),C1 = CFrame.new(0.037853241, 5.13940907, -0.974006653, -1.00000012, -2.98023579e-008, -5.96047158e-008, 2.98023224e-008, 0.999994993, 0.00350397523, -5.21540642e-008, 0.00350406417, -0.999995232),})
 
+chatfunc("i t c o m e s b a c k s t r o n g e r")
+	
 Hitbox1 = New("Part",RuinedHand1,"Hitbox",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.225023165, 4.50000048, 4.42007256),CFrame = CFrame.new(-45.8067703, 2.15377712, 2.25294924, 0, 1, 0, 0.000304999994, 0, -1, -1, 0, -0.000304999994),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Hitbox1,"Mesh",{Scale = Vector3.new(1, 0.945098102, 1),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Hitbox1,"mot",{Part0 = Hitbox1,Part1 = Sphere1,C0 = CFrame.new(0, 0, 0, -1.62422657e-006, 1.62458491e-006, -0.999998808, 1.00000715, -2.0038101e-006, 6.18398133e-007, -2.74038939e-007, -1.00000226, -2.92566966e-007),C1 = CFrame.new(0.0275506973, -0.00451803207, 0.0296287537, 1, 5.81144241e-006, -1.43646939e-005, -5.76079674e-006, 0.999993801, 0.00352320028, 1.43850802e-005, -0.00352320028, 0.999993801),})
