@@ -27,16 +27,12 @@ local looprevive = false
 local mode = false
 local revive = false
 local Create = LoadLibrary("RbxUtility").Create
-
-
-
 local m = Create("Model"){
 	Parent = Character,
 	Name = "WeaponModel",
 }
 Humanoid.Animator.Parent = nil
 Character.Animate.Parent = nil
-
 local newWeld = function(part0, part1, c0, c1)
 	local w = Create('Weld'){
 		Parent = part0,
@@ -47,14 +43,11 @@ local newWeld = function(part0, part1, c0, c1)
 	}
 	return w
 end
-
 function clerp(a, b, t)
 	return a:lerp(b, t)
 end
-
 RootCF = CFrame.fromEulerAnglesXYZ(-1.57, 0, 3.14)
 NeckCF = CFrame.new(0, 1, 0, -1, -0, -0, 0, 0, 1, 0, 1, 0)
-
 local RW = newWeld(Torso, RightArm, CFrame.new(1.5, 0, 0), CFrame.new(0, 0, 0)) 
 local LW = newWeld(Torso, LeftArm, CFrame.new(-1.5, 0, 0), CFrame.new(0, 0, 0))
 local RH = newWeld(Torso, RightLeg, CFrame.new(.5, -2, 0), CFrame.new(0, 0, 0))
@@ -63,14 +56,11 @@ RootJoint.C1 = CFrame.new(0, 0, 0)
 RootJoint.C0 = CFrame.new(0, 0, 0)
 Torso.Neck.C1 = CFrame.new(0, 0, 0)
 Torso.Neck.C0 = CFrame.new(0, 1.5, 0)
-
 local rarmc1 = RW.C1
 local larmc1 = LW.C1
 local rlegc1 = RH.C1
 local llegc1 = LH.C1
-
 local resetc1 = false
-
 function PlayAnimationFromTable(table, speed, bool)
 	RootJoint.C0 = clerp(RootJoint.C0, table[1], speed) 
 	Torso.Neck.C0 = clerp(Torso.Neck.C0, table[2], speed) 
@@ -90,21 +80,17 @@ function PlayAnimationFromTable(table, speed, bool)
 		end
 	end
 end
-
 ArtificialHB = Create("BindableEvent", script){
 	Parent = script,
 	Name = "Heartbeat",
 }
-
 script:WaitForChild("Heartbeat")
-
 frame = 1 / 30
 tf = 0
 allowframeloss = false
 tossremainder = false
 lastframe = tick()
 script.Heartbeat:Fire()
-
 game:GetService("RunService").Heartbeat:connect(function(s, p)
 	tf = tf + s
 	if tf >= frame then
@@ -124,7 +110,6 @@ game:GetService("RunService").Heartbeat:connect(function(s, p)
 		end
 	end
 end)
-
 function swait(num)
 	if num == 0 or num == nil then
 		ArtificialHB.Event:wait()
@@ -134,11 +119,9 @@ function swait(num)
 		end
 	end
 end
-
 function RemoveOutlines(part)
 	part.TopSurface, part.BottomSurface, part.LeftSurface, part.RightSurface, part.FrontSurface, part.BackSurface = 10, 10, 10, 10, 10, 10
 end
-	
 CFuncs = {	
 	["Part"] = {
 		Create = function(Parent, Material, Reflectance, Transparency, BColor, Name, Size)
@@ -168,7 +151,6 @@ end
 			return Part
 		end;
 	};
-	
 	["Mesh"] = {
 		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
 			local Msh = Create(Mesh){
@@ -183,7 +165,6 @@ end
 			return Msh
 		end;
 	};
-	
 	["Mesh"] = {
 		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
 			local Msh = Create(Mesh){
@@ -198,7 +179,6 @@ end
 			return Msh
 		end;
 	};
-	
 	["Weld"] = {
 		Create = function(Parent, Part0, Part1, C0, C1)
 			local Weld = Create("Weld"){
@@ -211,8 +191,7 @@ end
 			return Weld
 		end;
 	};
-
-	["Sound"] = {
+["Sound"] = {
 		Create = function(id, par, vol, pit) 
 			coroutine.resume(coroutine.create(function()
 				local S = Create("Sound"){
@@ -227,7 +206,6 @@ end
 			end))
 		end;
 	};
-	
 	["ParticleEmitter"] = {
 		Create = function(Parent, Color1, Color2, LightEmission, Size, Texture, Transparency, ZOffset, Accel, Drag, LockedToPart, VelocityInheritance, EmissionDirection, Enabled, LifeTime, Rate, Rotation, RotSpeed, Speed, VelocitySpread)
 			local fp = Create("ParticleEmitter"){
@@ -254,12 +232,9 @@ end
 			return fp
 		end;
 	};
-
-	CreateTemplate = {
-	
+CreateTemplate = {
 	};
 }
-
 --
 New = function(Object, Parent, Name, Data)
 	local Object = Instance.new(Object)
@@ -274,15 +249,7 @@ Object.Anchored = false
 end
 	return Object
 end
-
-
 Model = New("Model",Character,"Model",{})
-
-
-
-
-
-
 W3d = New("Part",Model,"W3d",{BrickColor = BrickColor.new("Pastel brown"),Material = Enum.Material.SmoothPlastic,FormFactor = Enum.FormFactor.Symmetric,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-45.8999138, 3.90000486, -17.719944, -1, 0, 0, 0, 1, 0, 0, 0, -1),LeftSurface = Enum.SurfaceType.Weld,RightSurface = Enum.SurfaceType.Weld,Color = Color3.new(1, 0.8, 0.6),})
 motr=Instance.new("Weld", W3d)
 motr.Part0 = RootPart
@@ -689,15 +656,12 @@ mot = New("Weld",Eye2,"mot",{Part0 = Eye2,Part1 = W3d,C0 = CFrame.new(0, 0, 0, 0
 Hitbox = New("Part",Eye2,"Hitbox",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.225023165, 4.50000048, 4.42007256),CFrame = CFrame.new(-45.8067703, 2.15377712, 2.25294924, 0, 1, 0, 0.000304999994, 0, -1, -1, 0, -0.000304999994),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Hitbox,"Mesh",{Scale = Vector3.new(1, 0.945098102, 1),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Hitbox,"mot",{Part0 = Hitbox,Part1 = Sphere,C0 = CFrame.new(0, 0, 0, 0, 0.000304999994, -1, 1, 0, 0, 0, -1, -0.000304999994),C1 = CFrame.new(0.101303101, -0.0297417641, 0.0238523483, 1, 0, 0, 0, 1, 0.000303000008, 0, -0.000303000008, 1),})
-
 local RuinedHand1 = New("Model",Character,"RuinedHand1",{})
 local W3d1 = New("Part",RuinedHand1,"W3d1",{CanCollide = false, Transparency = 1,BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-34.6890411, 9.78299999, -60.2759666, -1.00000072, -5.96046448e-008, -9.68575478e-008, 2.98023224e-008, 0.999997973, 0.00350391865, -1.49011612e-007, 0.00350413471, -0.999998927),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 local real1 = New("Part",RuinedHand1,"a",{CanCollide = false, Transparency = 1,BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-34.6890411, 9.78299999, -60.2759666, -1.00000072, -5.96046448e-008, -9.68575478e-008, 2.98023224e-008, 0.999997973, 0.00350391865, -1.49011612e-007, 0.00350413471, -0.999998927),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
-
 local RuinedHand2 = New("Model",Character,"RuinedHand2",{})
 local W3d2 = New("Part",RuinedHand2,"W3d2",{CanCollide = false, Transparency = 1,BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-43.8889885, 9.78300476, -60.2759781, -1.00000072, 5.96046448e-008, 9.68575478e-008, -2.98023224e-008, 0.999997973, 0.00350391865, 1.49011612e-007, 0.00350413471, -0.999998927),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 local real2 = New("Part",RuinedHand2,"a",{CanCollide = false, Transparency = 1,BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-34.6890411, 9.78299999, -60.2759666, -1.00000072, -5.96046448e-008, -9.68575478e-008, 2.98023224e-008, 0.999997973, 0.00350391865, -1.49011612e-007, 0.00350413471, -0.999998927),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
-
 local RuinedHand3 = New("Model",Character,"RuinedHand3",{})
 local W3d3 = New("Part",RuinedHand3,"W3d3",{CanCollide = false, Transparency = 1,BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-39.289032, 14.572999, -59.4759789, -1.00000012, 2.98023224e-008, -5.21540642e-008, -2.98023579e-008, 0.999994993, 0.00350406417, -5.96047158e-008, 0.00350397523, -0.999995232),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 local vr1 = New("Weld",real1,"mot",{Part0 = RootPart,Part1 = real1,})
@@ -705,7 +669,6 @@ local vr2 = New("Weld",real2,"mot",{Part0 = RootPart,Part1 = real2,})
 local moter1 = New("Weld",W3d1,"mot",{Part0 = RootPart,Part1 = W3d1,})
 local moter2 = New("Weld",W3d2,"mot",{Part0 = RootPart,Part1 = W3d2,})
 local moter3 = New("Weld",W3d3,"mot",{Part0 = RootPart,Part1 = W3d3,})
-
 for _,v in pairs(Model:children()) do
 if v:IsA("Part") then
 v.CanCollide = false
@@ -715,7 +678,6 @@ end
 function rayCast(Position, Direction, Range, Ignore)
 	return game:service("Workspace"):FindPartOnRay(Ray.new(Position, Direction.unit * (Range or 999.999)), Ignore) 
 end 
-
 FindNearestTorso = function(pos)
 	local list = (game.Workspace:children())
 	local torso = nil
@@ -737,7 +699,6 @@ FindNearestTorso = function(pos)
 	end
 	return torso, dist
 end
-
 function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSound, HitPitch)
 	if hit.Parent == nil then
 		return
@@ -881,7 +842,6 @@ function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSo
 		game:GetService("Debris"):AddItem(c, .5)
 	end
 end
-
 function ShowDamage(Pos, Text, Time, Color)
 	local Rate = (1 / 30)
 	local Pos = (Pos or Vector3.new(0, 0, 0))
@@ -919,7 +879,6 @@ function ShowDamage(Pos, Text, Time, Color)
 		end
 	end)
 end
-
 function MagnitudeDamage(Part, Magnitude, MinimumDamage, MaximumDamage, KnockBack, Type, HitSound, HitPitch)
 	for _, c in pairs(workspace:children()) do
 		local hum = c:findFirstChild("Humanoid")
@@ -935,7 +894,6 @@ function MagnitudeDamage(Part, Magnitude, MinimumDamage, MaximumDamage, KnockBac
 		end
 	end
 end
-
 function Armor() -- Don't like how the armor shows up at first while the character is invisible
 LeftArmHandle=CFuncs.Part.Create(m,Enum.Material.Plastic,0,1,"Medium stone grey","LeftArmHandle",Vector3.new(1.0117017, 2.02340055, 1.01170254))
 LeftArmHandleWeld=CFuncs.Weld.Create(m,Character["Left Arm"],LeftArmHandle,CFrame.new(0.015, 0, 0),CFrame.new(0, 0, 0))
@@ -2366,12 +2324,10 @@ Part=CFuncs.Part.Create(m,Enum.Material.Plastic,0,0,"Really black","Part",Vector
 Part.Shape = "Cylinder"
 PartWeld=CFuncs.Weld.Create(m,TorsoHandle,Part,CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),CFrame.new(-0.421798706, 0.302509308, -0.0484103411, -0.000242504699, 0.00010346956, -1, -1, 8.66204355e-005, 0.000236734166, 8.79392246e-005, 0.999999881, 0.000103448117))
 end
-
 EffectModel = Create("Model"){
 	Parent = Character,
 	Name = "Effects",
 }
-
 Effects = {
 	Block = {
 		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay, Type)
@@ -2403,8 +2359,7 @@ Effects = {
 			end
 		end;
 	};
-
-		Cylinder = {
+Cylinder = {
 		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
 			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
 			prt.Anchored = true
@@ -2440,8 +2395,7 @@ Effects = {
 			})
 		end;
 	};
-	
-	Sphere = {
+Sphere = {
 		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
 			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
 			prt.Anchored = true
@@ -2459,7 +2413,6 @@ Effects = {
 			})
 		end;
 	};
-	
 	Elect = {
 		Create = function(cff, x, y, z)
 			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, BrickColor.new("Lime green"), "Part", Vector3.new(1, 1, 1))
@@ -2485,7 +2438,6 @@ Effects = {
 		end;
 
 	};
-	
 	Ring = {
 		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
 			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
@@ -2504,9 +2456,7 @@ Effects = {
 			})
 		end;
 	};
-
-
-	Wave = {
+Wave = {
 		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
 			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
 			prt.Anchored = true
@@ -2524,8 +2474,7 @@ Effects = {
 			})
 		end;
 	};
-
-	Break = {
+Break = {
 		Create = function(brickcolor, cframe, x1, y1, z1)
 			local prt = CFuncs.Part.Create(EffectModel, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new(0.5, 0.5, 0.5))
 			prt.Anchored = true
@@ -2544,7 +2493,6 @@ Effects = {
 			})
 		end;
 	};
-	
 	Fire = {
 		Create = function(brickcolor, cframe, x1, y1, z1, delay)
 			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 0, brickcolor, "Effect", Vector3.new())
@@ -2563,7 +2511,6 @@ Effects = {
 			})
 		end;
 	};
-	
 	FireWave = {
 		Create = function(brickcolor, cframe, x1, y1, z1)
 			local prt = CFuncs.Part.Create(EffectModel, "Neon", 0, 1, brickcolor, "Effect", Vector3.new())
@@ -2591,7 +2538,6 @@ Effects = {
 			})
 		end;
 	};
-	
 	Lightning = {
 		Create = function(p0, p1, tym, ofs, col, th, tra, last)
 			local magz = (p0 - p1).magnitude
@@ -2631,8 +2577,7 @@ Effects = {
 			end
 		end
 	};
-
-	EffectTemplate = {
+EffectTemplate = {
 
 	};
 }
@@ -2645,9 +2590,6 @@ print("If you remove credits, i will kill you. ~by grgrgry21 and Dooven, Credit 
 	Effects.Sphere.Create(BrickColor.new("Really red"), CFrame.new(orgpos), 5, 5, 5, 1, 1, 1, 0.1)
 	table.insert(Effects, {MouseLook.lookVector, "Shoot", 50, orgpos, 5, 7, 0, 1, 2})
 end
-
-
-
 function Beem(Part, Dmg)
   sp = Part.Position
   dirr = Part.CFrame * CFrame.fromEulerAnglesXYZ(-1.57, 0, 0)
@@ -2690,8 +2632,7 @@ function Beem(Part, Dmg)
     Effects.Ring.Create(BrickColor.new("Really red"), las2.CFrame * CFrame.Angles(math.random(-4,4),math.random(-4,4),math.random(-4,4)), 8, 8, 8, 2.5, 2.5, 2.5, 0.09)
     Effects.Sphere.Create(BrickColor.new("Really red"), las2.CFrame, 6, 6, 6, 9, 9, 9, 0.09)
     CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=228343252", las2, 1.2, 0.9)
-
-    coroutine.resume(coroutine.create(function(Part, Mesh)
+coroutine.resume(coroutine.create(function(Part, Mesh)
       for i = 0, 0.8, 0.1 do
         wait()
         Part.Transparency = Part.Transparency + 1
@@ -2776,7 +2717,6 @@ moter3.C0 = clerp(moter3.C0, CFrame.new(-0.0398368835, 5.56001043, 2.20168447, 1
 end
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=231917758", Hitbox2, 1, 1)
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=159882598", RootPart, 2.2, 1)
-
 for i = 0, 1, 0.1 do
 swait()
 PlayAnimationFromTable({
@@ -2802,7 +2742,6 @@ attacktwo = function()
 		local con = Hitbox.Touched:connect(function(hit)
 		Damage(Hitbox, hit, 15, 25, math.random(1, 5), "Normal", RootPart, .2, "rbxassetid://199149186", 1)
 	end)
-
 for i = 0, 1, 0.1 do
 swait()
 PlayAnimationFromTable({
@@ -2829,7 +2768,7 @@ CFrame.new(-0.54950124, -1.97664273, -0.168086126, 0.999183774, -7.10019322e-007
 }, .3, false)
 motr.C0 = clerp(motr.C0, CFrame.new(0.16015625, 3.0010252, -3.93542266, 1, 0, -0, 0, 0.838179111, -0.545395076, 0, 0.545395076, 0.838179111) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 0.3)
 end
-	con:Disconnect()
+con:Disconnect()
 	else
 	local con = Hitbox1.Touched:connect(function(hit)
 		Damage(Hitbox1, hit, 15, 25, math.random(1, 5), "Normal", RootPart, .2, "rbxassetid://199149186", 1)
@@ -2979,7 +2918,6 @@ attackfour = function()
 	if revive == false then
 local ref = New("Part",Model,"ref",{Transparency = 1,CanCollide = false, BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-50.8233452, -2.94440603, -41.9271126, -1, -0, 0, 0, -0.0611380227, 0.998129368, 0, 0.998129368, 0.0611380227),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 local mot = New("Weld",ref,"mot",{Part0 = ref,Part1 = RootPart,C0 = CFrame.new(0, 0, 0, -1, 0, 0, 0, -0.0611380227, 0.998129368, 0, 0.998129368, 0.0611380227),C1 = CFrame.new(0.16015625, -2.91722918, -7.77282715, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
-
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=199145497", RootPart, 1, 1)	
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=159882584", RootPart, 2.2, 1)	
 Humanoid.Jump = true
@@ -3034,7 +2972,6 @@ end
 	else
 local refn = New("Part",RuinedHand3,"refn",{Transparency = 1,CanCollide = false, BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-50.8233452, -2.94440603, -41.9271126, -1, -0, 0, 0, -0.0611380227, 0.998129368, 0, 0.998129368, 0.0611380227),Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 local mot = New("Weld",refn,"mot",{Part0 = refn,Part1 = RootPart,C0 = CFrame.new(0, 0, 0, -1, 0, 0, 0, 0.0189939924, 0.999819636, 0, 0.999819636, -0.0189939905),C1 = CFrame.new(-0.0398359299, -3.0348413, -7.48670959, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
-
 for i = 0, 2, 0.1 do
 swait()
 PlayAnimationFromTable({
@@ -3185,7 +3122,6 @@ Watergunshoot = function()
 	attack = true
 local ref = New("Part",RuinedHand3,"ref",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-63.7534943, 0.396845818, -9.92230225, -1, 0, 0, 0, 0.00350399944, -0.999993861, 0, -0.999993861, -0.00350399921),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 mot = New("Weld",ref,"mot",{Part0 = ref,Part1 = RootPart,C0 = CFrame.new(0, 0, 0, -1, 0, 0, 0, 0.00350399944, -0.999993861, 0, -0.999993861, -0.00350399921),C1 = CFrame.new(0.16015625, 0.531864166, -3.29763794, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
-
 for i = 0, 1, 0.1 do
 swait()
 PlayAnimationFromTable({
@@ -3241,7 +3177,6 @@ motr.C0 = clerp(motr.C0, CFrame.new(0.16015625, 0.531864107, -3.29763818, 1, 0, 
 moter3.C0 = clerp(moter3.C0, CFrame.new(0.16015625, 0.531864107, -3.29763818, 1, 0, 0, 0, 0.999993861, 0.00350399921, 0, -0.00350399944, 0.999993861) * CFrame.new(math.random(-0.8,0.8), math.random(-0.8,0.8), 0) * CFrame.Angles(0, 0, 0), 0.7)
 Torso.Velocity = RootPart.CFrame.lookVector * -16
 end
-
 Humanoid.WalkSpeed = Humanoid.WalkSpeed + 10
 ref:Remove()
 attack = false
@@ -3254,8 +3189,6 @@ local Models = New("Model",Character,"Model",{})
 local eyesz = New("Part",Models,"eye",{BrickColor = BrickColor.new("Really red"),Material = Enum.Material.Neon,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-56.0288696, 1.56154633, -44.8319473, -1.00000036, 3.95500101e-005, -5.96046945e-008, -3.95501265e-005, -1.00000024, -4.44026066e-011, 2.98024041e-008, -3.24078958e-012, 1),CanCollide = false,Color = Color3.new(1, 0, 0),})
 Meshs = New("SpecialMesh",eyesz,"Mesh",{MeshType = Enum.MeshType.Sphere,})
 mots = New("Weld",eyesz,"mot",{Part0 = eyesz,Part1 = Head,C0 = CFrame.new(0, 0, 0, -1.00000036, -3.95501265e-005, 2.98024041e-008, 3.95500101e-005, -1.00000024, -3.24078958e-012, -5.96046945e-008, -4.44026066e-011, 1),C1 = CFrame.new(0.0999984741, 0.230003357, -0.54234314, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
-
-	
 local eye = New("Part",Models,"eye",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.Granite,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-56.0288696, 1.56154633, -44.791954, 0, 3.89999987e-005, 1, 0, -1, 3.89999987e-005, 1, -0, 0),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",eye,"Mesh",{Scale = Vector3.new(0.200000003, 1, 1),MeshType = Enum.MeshType.Cylinder,})
 mot = New("Weld",eye,"mot",{Part0 = eye,Part1 = Head,C0 = CFrame.new(0, 0, 0, 0, 0, 1, 3.89999987e-005, -1, 0, 1, 3.89999987e-005, 0),C1 = CFrame.new(0.0999984741, 0.230003357, -0.582336426, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
@@ -3274,11 +3207,6 @@ mot = New("Weld",eye,"mot",{Part0 = eye,Part1 = Head,C0 = CFrame.new(0, 0, 0, 0,
 local eye1 = New("Part",Models,"eye1",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.Granite,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-56.0288696, 1.56154633, -44.8119507, -1.00000036, 3.95500101e-005, -5.96046945e-008, -3.95501265e-005, -1.00000024, -4.44026066e-011, 2.98024041e-008, -3.24078958e-012, 1),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",eye1,"Mesh",{Scale = Vector3.new(0.3, 0.8, 0.9),MeshType = Enum.MeshType.Sphere,})
 mot = New("Weld",eye1,"mot",{Part0 = eye1,Part1 = Head,C0 = CFrame.new(0, 0, 0, -1.00000036, -3.95501265e-005, 2.98024041e-008, 3.95500101e-005, -1.00000024, -3.24078958e-012, -5.96046945e-008, -4.44026066e-011, 1),C1 = CFrame.new(0.0999984741, 0.230003357, -0.562339783, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
-
-
---
-
-
 Neon = New("Part",RuinedHand1,"Neon",{BrickColor = BrickColor.new("Really red"),Material = Enum.Material.Neon,Size = Vector3.new(0.765078783, 0.290730327, 0.812331557),CFrame = CFrame.new(-17.9002018, 7.27178431, 34.0376816, 0.0072249379, -0.707797825, 0.706379771, 0.137452006, 0.700395107, 0.700395465, -0.99048233, 0.0920329168, 0.102348484),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(1, 0, 0),})
 Mesh = New("SpecialMesh",Neon,"Mesh",{Scale = Vector3.new(1.00999999, 1.00999999, 1.00999999),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Neon,"mot",{Part0 = Neon,Part1 = W3d1,C0 = CFrame.new(0, 0, 0, 0.0072249379, 0.137452021, -0.990482092, -0.70779711, 0.700395107, 0.0920328945, 0.706378937, 0.700395346, 0.102348447),C1 = CFrame.new(-2.19604683, 2.08184719, 0.0628738403, 0.999973595, 0, 0.00729339523, 2.55640462e-005, 0.999993861, -0.00350500271, -0.00729334867, 0.00350509607, 0.999967337),})
@@ -3495,10 +3423,6 @@ mot = New("Weld",Handle1,"mot",{Part0 = Handle1,Part1 = W3d1,C0 = CFrame.new(0, 
 Handle1 = New("Part",RuinedHand1,"Handle1",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.225023165, 0.200000003, 3.0999999),CFrame = CFrame.new(-14.5724773, 6.17995501, 33.9879723, -0.00729529932, -0.707107425, 0.707070291, 0.00352302007, -0.707102239, -0.707102716, 0.999967515, -0.00266753719, 0.00764967036),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Handle1,"Mesh",{MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Handle1,"mot",{Part0 = Handle1,Part1 = W3d1,C0 = CFrame.new(0, 0, 0, -0.00729530444, 0.00352300098, 0.999967217, -0.70710665, -0.70710218, -0.00266752392, 0.707069576, -0.707102716, 0.00764966197),C1 = CFrame.new(1.13122368, 0.990283489, -0.0149307251, 0.999973595, 0, 0.00729339523, 2.55640462e-005, 0.999993861, -0.00350500271, -0.00729334867, 0.00350509607, 0.999967337),})
-
-
-
-
 Neon = New("Part",RuinedHand2,"Neon",{BrickColor = BrickColor.new("Really red"),Material = Enum.Material.Neon,Size = Vector3.new(0.765078783, 0.290730327, 0.812331557),CFrame = CFrame.new(-7.24721813, 4.35527515, -4.86151123, 2.85844908e-005, -0.707103074, 0.707133174, -0.137452438, 0.700408399, 0.70038873, -0.990506828, -0.0972137526, -0.0971758962),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(1, 0, 0),})
 Mesh = New("SpecialMesh",Neon,"Mesh",{Scale = Vector3.new(1.00999999, 1.00999999, 1.00999999),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Neon,"mot",{Part0 = Neon,Part1 = W3d2,C0 = CFrame.new(0, 0, 0, 2.65993513e-005, -0.137453094, -0.990508437, -0.707093418, 0.700406134, -0.0972145572, 0.707120657, 0.70038408, -0.0971735194),C1 = CFrame.new(2.19604778, 2.08184695, 0.0628738403, -1.00000012, 1.5735508e-005, -2.98149789e-005, 1.56309379e-005, 0.999993861, 0.00350400037, 2.98699306e-005, 0.00350399921, -0.99999398),})
@@ -3715,8 +3639,6 @@ mot = New("Weld",Handle1,"mot",{Part0 = Handle1,Part1 = W3d2,C0 = CFrame.new(0, 
 Handle1 = New("Part",RuinedHand2,"Handle1",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.225023165, 0.200000003, 3.0999999),CFrame = CFrame.new(-3.91991663, 3.26339364, -4.78743935, -3.01651871e-005, -0.70713073, 0.707105696, -0.00352325267, -0.707095563, -0.707116008, 0.999992609, -0.00250753039, -0.00247130683),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Handle1,"Mesh",{MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Handle1,"mot",{Part0 = Handle1,Part1 = W3d2,C0 = CFrame.new(0, 0, 0, -2.79149026e-005, -0.00352190481, 0.99999404, -0.707118452, -0.707090974, -0.00251006149, 0.707095802, -0.707113862, -0.00247066515),C1 = CFrame.new(-1.1312232, 0.990283489, -0.0149302483, -1.00000012, 1.5735508e-005, -2.98149789e-005, 1.56309379e-005, 0.999993861, 0.00350400037, 2.98699306e-005, 0.00350399921, -0.99999398),})
-
-
 Handle2 = New("Part",RuinedHand3,"Handle2",{BrickColor = BrickColor.new("Really red"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.819084406, 0.200000003, 0.739424169),CFrame = CFrame.new(-34.9348907, 17.1883621, -58.9862022, -0.501736164, 0.636302292, 0.585986793, 0.859544158, 0.44285056, 0.255087137, -0.0971922055, 0.631668091, -0.769124091),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(1, 0, 0),})
 Mesh = New("SpecialMesh",Handle2,"Mesh",{Scale = Vector3.new(1.02999997, 0.747730851, 1.00999999),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Handle2,"mot",{Part0 = Handle2,Part1 = W3d3,C0 = CFrame.new(0, 0, 0, -0.501736104, 0.859543204, -0.0971920192, 0.636302173, 0.442850083, 0.631667197, 0.585986793, 0.25508675, -0.769123077),C1 = CFrame.new(-4.35414124, 2.61706066, -0.480609894, -1, 0, 0, 0, 0.999993861, 0.00350399944, 0, 0.00350399921, -0.999993861),})
@@ -4116,9 +4038,6 @@ mot = New("Weld",Handle2,"mot",{Part0 = Handle2,Part1 = W3d3,C0 = CFrame.new(0, 
 Handle2 = New("Part",RuinedHand3,"Handle2",{BrickColor = BrickColor.new("Really red"),Material = Enum.Material.SmoothPlastic,Size = Vector3.new(0.765078783, 0.200000003, 0.769577205),CFrame = CFrame.new(-39.3268852, 19.7089691, -58.4839668, -0.0456919968, -0.0515018478, -0.997627378, -0.786246121, 0.617903471, 0.00411162199, 0.616225958, 0.784568429, -0.0687266216),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(1, 0, 0),})
 Mesh = New("SpecialMesh",Handle2,"Mesh",{Scale = Vector3.new(1.02999997, 0.747730851, 1.00999999),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Handle2,"mot",{Part0 = Handle2,Part1 = W3d3,C0 = CFrame.new(0, 0, 0, -0.0456920154, -0.786244273, 0.616224229, -0.0515019596, 0.61790216, 0.784566402, -0.997627139, 0.00411166577, -0.0687263161),C1 = CFrame.new(0.037853241, 5.13940907, -0.974006653, -1.00000012, -2.98023579e-008, -5.96047158e-008, 2.98023224e-008, 0.999994993, 0.00350397523, -5.21540642e-008, 0.00350406417, -0.999995232),})
-
-
-	
 Hitbox1 = New("Part",RuinedHand1,"Hitbox",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.225023165, 4.50000048, 4.42007256),CFrame = CFrame.new(-45.8067703, 2.15377712, 2.25294924, 0, 1, 0, 0.000304999994, 0, -1, -1, 0, -0.000304999994),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Hitbox1,"Mesh",{Scale = Vector3.new(1, 0.945098102, 1),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Hitbox1,"mot",{Part0 = Hitbox1,Part1 = Sphere1,C0 = CFrame.new(0, 0, 0, -1.62422657e-006, 1.62458491e-006, -0.999998808, 1.00000715, -2.0038101e-006, 6.18398133e-007, -2.74038939e-007, -1.00000226, -2.92566966e-007),C1 = CFrame.new(0.0275506973, -0.00451803207, 0.0296287537, 1, 5.81144241e-006, -1.43646939e-005, -5.76079674e-006, 0.999993801, 0.00352320028, 1.43850802e-005, -0.00352320028, 0.999993801),})
@@ -4128,18 +4047,13 @@ mot = New("Weld",Hitbox2,"mot",{Part0 = Hitbox2,Part1 = Sphere2,C0 = CFrame.new(
 Hitbox3 = New("Part",RuinedHand3,"Hitbox",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.225023165, 4.50000048, 4.42007256),CFrame = CFrame.new(-45.8067703, 2.15377712, 2.25294924, 0, 1, 0, 0.000304999994, 0, -1, -1, 0, -0.000304999994),CanCollide = false,BackSurface = Enum.SurfaceType.SmoothNoOutlines,BottomSurface = Enum.SurfaceType.SmoothNoOutlines,FrontSurface = Enum.SurfaceType.SmoothNoOutlines,LeftSurface = Enum.SurfaceType.SmoothNoOutlines,RightSurface = Enum.SurfaceType.SmoothNoOutlines,TopSurface = Enum.SurfaceType.SmoothNoOutlines,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
 Mesh = New("SpecialMesh",Hitbox3,"Mesh",{Scale = Vector3.new(1, 0.945098102, 1),MeshType = Enum.MeshType.Brick,})
 mot = New("Weld",Hitbox3,"mot",{Part0 = Hitbox3,Part1 = Sphere3,C0 = CFrame.new(0, 0, 0, -1.62422657e-006, 1.62458491e-006, -0.999998808, 1.00000715, -2.0038101e-006, 6.18398133e-007, -2.74038939e-007, -1.00000226, -2.92566966e-007),C1 = CFrame.new(0.0275506973, -0.00451803207, 0.0296287537, 1, 5.81144241e-006, -1.43646939e-005, -5.76079674e-006, 0.999993801, 0.00352320028, 1.43850802e-005, -0.00352320028, 0.999993801),})
---
-	
 coroutine.resume(coroutine.create(function(Part,Weld)
 while Part.Parent~=nil do
 wait(5)
 for i=0,1,0.2 do
 wait()
 Meshs.Scale = Vector3.new(1,1-.9*i,1)
-						
 end --end of death function (i think)
-					
-					
 for i=0,1,0.2 do
 wait()
 Meshs.Scale = Vector3.new(1,.1+.9*i,1)
@@ -4170,7 +4084,6 @@ v.Transparency = 1
 v.CanCollide = false
 end
 end
-
 Humanoid.JumpPower = 0
 Humanoid.WalkSpeed = 0
 Humanoid.MaxHealth = math.huge
@@ -4209,7 +4122,6 @@ CFrame.new(-0.714580953, -1.99994349, -0.011869166, 0.952661812, 0.30331111, -0.
 motr.C0 = clerp(motr.C0, CFrame.new(0.16015625, -2.53131008, 8.14245892, 1, 0, -0, 0, 0.0478500314, -0.998854578, 0, 0.998854578, 0.0478500351) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 0.3)
 end
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=136007472", Character, 1, 0.7)
-
 Effects.Block.Create(BrickColor.new("Really red"), Torso.CFrame, 60, 60, 60, -.13, -.13, -.13, 0.008)
 for i = 0, 10, 0.1 do
 swait()
@@ -4223,7 +4135,6 @@ CFrame.new(-0.714580953, -1.99994349, -0.011869166, 0.952661812, 0.30331111, -0.
 }, .3, false)
 motr.C0 = clerp(motr.C0, CFrame.new(0.16015625, -2.53131008, 8.14245892, 1, 0, -0, 0, 0.0478500314, -0.998854578, 0, 0.998854578, 0.0478500351) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 0.3)
 end
-
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=132164034", Character, 1.2, 1)
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=197161452", Character, 1.2, 1)
 Effects.Cylinder.Create(BrickColor.new("Really red"), RootPart.CFrame, 3, 1, 3, 4, 999, 4, 0.01)
@@ -4299,9 +4210,7 @@ revive = true
 end
 ukantkilmenaocuzialwaysrevive = function()-- rude
 attack = true
-
 wait(.1)
-
 Humanoid.JumpPower = 0
 Humanoid.WalkSpeed = 0
 Humanoid.MaxHealth = math.huge
@@ -4340,7 +4249,6 @@ CFrame.new(-0.714580953, -1.99994349, -0.011869166, 0.952661812, 0.30331111, -0.
 motr.C0 = clerp(motr.C0, CFrame.new(0.16015625, -2.53131008, 8.14245892, 1, 0, -0, 0, 0.0478500314, -0.998854578, 0, 0.998854578, 0.0478500351) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 0.3)
 end
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=136007472", Character, 1, 0.7)
-
 Effects.Block.Create(BrickColor.new("Really red"), Torso.CFrame, 60, 60, 60, -.13, -.13, -.13, 0.008)
 for i = 0, 10, 0.1 do
 swait()
@@ -4361,7 +4269,6 @@ Effects.Cylinder.Create(BrickColor.new("Really red"), RootPart.CFrame, 3, 1, 3, 
 sick.Volume = 1
 sick.Pitch = 1
 sick.PlaybackSpeed = 1
-
 for i = 0, 8, 0.1 do
 swait()
 PlayAnimationFromTable({
@@ -4382,9 +4289,7 @@ Humanoid.MaxHealth = 400
 trans = true
 wait(0.1)
 Humanoid.Health = 400
-
 end
-
 Head.Transparency = 1
 Head.face.Transparency = 1
 Torso.Transparency = 1
@@ -4392,7 +4297,6 @@ RightArm.Transparency = 1
 LeftArm.Transparency = 1
 RightLeg.Transparency = 1
 LeftLeg.Transparency = 1
-
 for _,v in pairs(Model:children()) do
 	if v:IsA("Part") then
 	v.Transparency = 1
@@ -4408,13 +4312,10 @@ for _,v in pairs(Model:children()) do
 		Humanoid.WalkSpeed = 0		
 
 wait() 
-
 intro = function()
-
-	local colorone = "Really red" -- Crimson
+local colorone = "Really red" -- Crimson
 local colortwo = "Really black" -- Bright red
 local colorthree = "Dark blue" -- Really red
-
 function chatfunc(text)
 	local chat = coroutine.wrap(function()
 	if Character:FindFirstChild("TalkingBillBoard")~= nil then
@@ -4464,8 +4365,6 @@ function chatfunc(text)
 	chatfunc(msg)
 	end
 	Player.Chatted:connect(onChatted)
-
---192892790
 sick = Instance.new("Sound",Character)
 sick.SoundId = "rbxassetid://608726256"
 sick.Looped = true
@@ -4473,15 +4372,10 @@ sick.Pitch = 1
 sick.Volume = 1
 sick.Name = "sick"
 sick:Play()
-
 chatfunc("i am your worst night mare")
-
 wait(3)
-
 chatfunc("i a m s i n")
-
 wait(3)
-
 local naeeym2 = Instance.new("BillboardGui",Character)
 naeeym2.Size = UDim2.new(0,100,0,40)
 naeeym2.StudsOffset = Vector3.new(0,3,0)
@@ -4497,8 +4391,7 @@ tecks2.TextStrokeTransparency = 0
 tecks2.TextColor3 = BrickColor.new(colortwo).Color
 tecks2.TextStrokeColor3 = BrickColor.new(colorone).Color
 tecks2.Size = UDim2.new(1,0,0.5,0)
-
-	attack = true
+attack = true
 	wait(.1)
 	Humanoid.JumpPower = 0
 	Humanoid.WalkSpeed = 0
@@ -4521,10 +4414,8 @@ LeftArm.Transparency = 1
 RightLeg.Transparency = 1
 LeftLeg.Transparency = 1
 wait(6)
-
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=136007472", Character, 1, 0.7)
 Effects.Block.Create(BrickColor.new("Really red"), Torso.CFrame, 60, 60, 60, -.13, -.13, -.13, 0.008)
-
 wait(4)
 for _,v in pairs(Model:children()) do
 if v:IsA("Part") then
@@ -4639,7 +4530,6 @@ Mouse.KeyDown:connect(function(k)
 		end
 	end
 end)
-
 Mouse.KeyDown:connect(function(k)
 k=k:lower()
 if mode == false and attack == false and k == 'z' then
@@ -4652,7 +4542,6 @@ takdis2()
 attack = false
 end
 end)
-
 coroutine.wrap(function()
 while true and wait(0.1) do
 if Humanoid.Health <=50 then
@@ -4738,8 +4627,7 @@ end
 			if  attack == false and revive == false then
 				rest = 0
 motr.C0 = clerp(motr.C0, CFrame.new(-0.377030611, 2.23529887, 3.38560438, 0.999624133, 0.0181941353, -0.0205119029, -0.017229002, 0.998779655, 0.0462857895, 0.0213290025, -0.0459149815, 0.998717666) * CFrame.new(0- 0.5 * math.cos((sine) / 60),0 + 0.5 * math.cos((sine) / 30), 0) * CFrame.Angles(0, 0, 0), 0.3)	
-
-		PlayAnimationFromTable({
+PlayAnimationFromTable({
          CFrame.new(-8.60420997e-008, 0.0903999731, 0.0717497543, 0.999999344, -7.68441396e-007, 9.95312632e-008, -9.23871994e-007, 0.866027236, -0.500000715, -3.7252903e-007, 0.499999225, 0.866028309) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
          CFrame.new(-1.90734863e-006, 1.61952782, -0.25634706, 1, 0, 0, 0, 0.866025984, 0.499998987, -0, -0.499998987, 0.866025984) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
          CFrame.new(1.79112387, 0.991010547, -0.34551996, 0.857188284, -0.515007496, -4.09685754e-006, -0.466755271, -0.776878357, 0.422614634, -0.217652529, -0.362256378, -0.90631187) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
@@ -4775,7 +4663,6 @@ end
 				-->|
 				if revive == false and rest <= 100 then
 motr.C0 = clerp(motr.C0, CFrame.new(-0.377030611, 2.23529887, 3.38560438, 0.999624133, 0.0181941353, -0.0205119029, -0.017229002, 0.998779655, 0.0462857895, 0.0213290025, -0.0459149815, 0.998717666) * CFrame.new(0- 0.5 * math.cos((sine) / 60),0 + 0.5 * math.cos((sine) / 30), 0) * CFrame.Angles(0, 0, 0), 0.3)	
-				
 --motr.C0 = clerp(motr.C0, CFrame.new(0.111216806, 2.23529911, 3.38560462, 0.999624133, 0.0181941353, -0.0205119029, -0.017229002, 0.998779655, 0.0462857895, 0.0213290025, -0.0459149815, 0.998717666) * CFrame.new(0- 0.5 * math.cos((sine) / 60),0 + 0.5 * math.cos((sine) / 30),0) * CFrame.Angles(0, 0, 0), 0.3)
 PlayAnimationFromTable({
 CFrame.new(0.0392251611, -0.399999946, -0.0661237091, 0.76604414, 0, 0.642788053, 0, 1, 0, -0.642788053, 0, 0.76604414) * CFrame.new(0, 0- 0.1 * math.cos((sine) / 6), 0) * CFrame.Angles(0, 0, 0), 
@@ -4785,7 +4672,6 @@ CFrame.new(-1.61124444, 0.263379157, 0.32901755, 0.847116113, 0.408216923, 0.340
 CFrame.new(0.771941304, -1.88623738, -0.0557135344, 0.816501081, -0.0616285168, -0.574043393, 0.0858317688, 0.996194422, 0.0151345003, 0.57092613, -0.0616286062, 0.818683982) * CFrame.new(0, 0+ 0.1 * math.cos((sine) / 6), 0) * CFrame.Angles(0, 0, 0),  
 CFrame.new(-0.699491143, -1.88838339, 0.0179257095, 0.903779387, 0.0983075202, -0.416555703, -0.0818995386, 0.995001972, 0.0571281463, 0.420089871, -0.0175155103, 0.907313585) * CFrame.new(0, 0+ 0.1 * math.cos((sine) / 6), 0) * CFrame.Angles(0, 0, 0), 
 }, .3, false)
-
 else if revive == false and rest >= 100 then
 PlayAnimationFromTable({
 CFrame.new(0, 1.64290798, 0.790938377, 1, 0, -0, 0, 0.946682513, -0.322168171, 0, 0.322168171, 0.946682513) * CFrame.new(0, 0- 0.1 * math.cos((sine) / 40), 0) * CFrame.Angles(0, 0, 0), 
@@ -4796,9 +4682,7 @@ CFrame.new(0.635925353, -1.65514231, -0.614153743, 0.982298017, -0.187325418, 1.
 CFrame.new(-0.716957748, -1.68315148, -0.704560757, 0.982148886, 0.188105345, -3.90193151e-007, -0.0583207756, 0.30450663, -0.950723171, -0.178835973, 0.933751762, 0.310041249) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
 }, .3, false)
 motr.C0 = clerp(motr.C0, CFrame.new(0.160171509, -0.227467522, 0.141577125, 1, 0, -0, 0, 0.0394390002, -0.999221981, 0, 0.999221981, 0.0394390002) * CFrame.new(0, 0, 0+ 0.1 * math.cos((sine) / 40)) * CFrame.Angles(0, 0, 0), 0.3)
-
 else if revive == true and rest <= 100 then
-
 PlayAnimationFromTable({
 CFrame.new(0, -0.00887098443, -0.0937612727, 1, 0, 0, 0, 0.982259452, 0.18752709, 0, -0.18752709, 0.982259452) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
 CFrame.new(0, 1.53825808, -0.0745411664, 1, 0, 0, 0, 0.982847154, 0.184422195, 0, -0.184422195, 0.982847154) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0+ 0.02 * math.cos((sine) / 45)), 
@@ -4813,7 +4697,6 @@ moter3.C0 = clerp(moter3.C0, CFrame.new(-0.0398368835, 5.56001043, 2.20168447, 1
 moter1.Part0 = RootPart
 moter2.Part0 = RootPart
 				else if revive == true and rest >= 100 then
-
 PlayAnimationFromTable({
 CFrame.new(0, 3.87472081, 0, 0.976388752, 0, -0.216020957, 0, 1, 0, 0.216020957, 0, 0.976388752) * CFrame.new(0, 0- 0.2 * math.cos((sine) / 30), 0) * CFrame.Angles(0, 0, 0), 
 CFrame.new(0, 1.49997687, 0, 0.954754591, 0, 0.297394872, 0, 1, 0, -0.297394872, 0, 0.954754591) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
@@ -5023,11 +4906,4 @@ end
 		end
 	end
 			end
-
 end
-
-
-
-
-
-
