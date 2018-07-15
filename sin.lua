@@ -1,7 +1,6 @@
 Effects = { }
 local Player = game.Players.localPlayer
-script.Parent = Player.PlayerGui
-script.Name = math.random(100, 100000)..[[ ]]..math.random(100000, 1000000000)
+
 local Character = Player.Character
 local Humanoid = Character.Humanoid
 local Mouse = Player:GetMouse()
