@@ -3119,7 +3119,21 @@ end
 Watergunshoot = function()
 	rest = 0
 	attack = true
-local ref = New("Part",RuinedHand3,"ref",{BrickColor = BrickColor.new("Really black"),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-63.7534943, 0.396845818, -9.92230225, -1, 0, 0, 0, 0.00350399944, -0.999993861, 0, -0.999993861, -0.00350399921),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
+
+
+
+ref = New("Part",RuinedHand3,"ref",{BrickColor = BrickColor.Random(),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-63.7534943, 0.396845818, -9.92230225, -1, 0, 0, 0, 0.00350399944, -0.999993861, 0, -0.999993861, -0.00350399921),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
+function yes() 
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v.ClassName == "Part" and v.Name == "RuinedHand3"
+then
+v.BrickColor = BrickColor.Random()
+end
+end	
+end
+
+coroutine.resume(coroutine.create(yes()))
+
 mot = New("Weld",ref,"mot",{Part0 = ref,Part1 = RootPart,C0 = CFrame.new(0, 0, 0, -1, 0, 0, 0, 0.00350399944, -0.999993861, 0, -0.999993861, -0.00350399921),C1 = CFrame.new(0.16015625, 0.531864166, -3.29763794, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
 for i = 0, 1, 0.1 do
 swait()
