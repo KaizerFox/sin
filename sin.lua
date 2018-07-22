@@ -3125,15 +3125,15 @@ return false end
 Watergunshoot = function()
 	rest = 0
 	attack = true
-local savedcolors = {1,2,3,4,5,6,7,8}	
+local savedcolors = {1,2,3,4,5,6,7,8,9,10,11,12}	
 
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-if v.ClassName == "Model" and v.Name == "Model" then
+if v.ClassName == "Model" then
 for i,x in pairs(v:GetDescendants()) do
 if x.ClassName == "Part" and x.Name == "Claw" then
 table.insert(savedcolors,1,x.BrickColor)
 end
-if x.ClassName == "Part" and x.Name == "Eye1" then
+if x.Name == "Eye1" then
 table.insert(savedcolors,2,x.BrickColor)
 end
 if x.Name == "Eye2" then
@@ -3154,12 +3154,38 @@ end
 if x.Name == "W3d" then
 table.insert(savedcolors,8,x.BrickColor)
 end
+if x.Name == "W3d1" then
+table.insert(savedcolors,9,x.BrickColor)
+end
+if x.Name ==  "W3d2"
+then 
+table.insert(savedcolors,10,x.BrickColor)
+end
+if x.Name ==  "W3d3"
+then 
+table.insert(savedcolors,11,x.BrickColor)
+end
+if x.Name ==  "a"
+then 
+table.insert(savedcolors,12,x.BrickColor)
+end
 end
 end
 end 
 
 wait()
-print(table.concat(savedcolors))
+print(savedcolors[1])
+print(savedcolors[2])
+print(savedcolors[3])
+print(savedcolors[4])
+print(savedcolors[5])
+print(savedcolors[6])
+print(savedcolors[7])
+print(savedcolors[8])
+print(savedcolors[9])
+print(savedcolors[10])
+print(savedcolors[11])
+print(savedcolors[12])
 wait()
 
 
@@ -3170,7 +3196,7 @@ mot = New("Weld",ref,"mot",{Part0 = ref,Part1 = RootPart,C0 = CFrame.new(0, 0, 0
 for i = 0, 1, 0.1 do
 swait()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-if v.ClassName == "Model" and v.Name == "Model" then
+if v.ClassName == "Model" then
 for i,x in pairs(v:GetDescendants()) do
 if x.ClassName == "Part" and x.Name == "Claw" or x.Name == "Eye1" or x.Name == "Eye2" or x.Name == "Handle1" or x.Name == "Handle2"  or x.Name == "Neon" or x.Name == "Sphere" or x.Name == "W3d" then
 x.BrickColor = BrickColor.Random()
@@ -3195,7 +3221,7 @@ CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=136007472", ref, 1, .6)
 for i = 0, 10, 0.1 do
 swait()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-if v.ClassName == "Model" and v.Name == "Model" then
+if v.ClassName == "Model" then
 for i,x in pairs(v:GetDescendants()) do
 if x.ClassName == "Part" and x.Name == "Claw" or x.Name == "Eye1" or x.Name == "Eye2" or x.Name == "Handle1" or x.Name == "Handle2"  or x.Name == "Neon" or x.Name == "Sphere" or x.Name == "W3d" then
 x.BrickColor = BrickColor.Random()
@@ -3229,7 +3255,7 @@ end)()
 for i = 0, 10, 0.1 do
 swait()
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-if v.ClassName == "Model" and v.Name == "Model" then
+if v.ClassName == "Model" then
 for i,x in pairs(v:GetDescendants()) do
 if x.ClassName == "Part" and x.Name == "Claw" or x.Name == "Eye1" or x.Name == "Eye2" or x.Name == "Handle1" or x.Name == "Handle2"  or x.Name == "Neon" or x.Name == "Sphere" or x.Name == "W3d" then
 x.BrickColor = BrickColor.Random()
@@ -3253,7 +3279,7 @@ Humanoid.WalkSpeed = Humanoid.WalkSpeed + 10
 ref:Remove()
 
 for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-if v.ClassName == "Model" and v.Name == "Model" then
+if v.ClassName == "Model" then
 for i,x in pairs(v:GetDescendants()) do
 if x.ClassName == "Part" and x.Name == "Claw" then
 x.BrickColor = savedcolors[1]
@@ -3278,6 +3304,21 @@ x.BrickColor = savedcolors[7]
 end
 if x.Name == "W3d" then
 x.BrickColor = savedcolors[8]
+end
+if x.Name == "W3d1" then
+x.BrickColor = savedcolors[9]
+end
+if x.Name ==  "W3d2"
+then 
+x.BrickColor = savedcolors[10]
+end
+if x.Name ==  "W3d3"
+then 
+x.BrickColor = savedcolors[11]
+end
+if x.Name ==  "a"
+then 
+x.BrickColor = savedcolors[12]
 end
 end
 end
