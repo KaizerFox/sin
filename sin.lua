@@ -25,21 +25,29 @@ local rest = 0
 local looprevive = false
 local mode = false
 local revive = false
-local Create = LoadLibrary("RbxUtility").Create
-local m = Create("Model"){
-	Parent = Character,
-	Name = "WeaponModel",
-}
+local Create = function(instance,parent,properties)
+	local inst = Instance.new(instance)
+	inst.Parent = parent
+	if(properties)then
+		for i,v in next, properties do
+			pcall(function() inst[i] = v end)
+		end
+	end
+	return inst;
+end
+local m = Create("Model", Character)
+
+
 Humanoid.Animator.Parent = nil
 Character.Animate.Parent = nil
 local newWeld = function(part0, part1, c0, c1)
-	local w = Create('Weld'){
+	local w = Create('Weld',part0,{
 		Parent = part0,
-		Part0 = part0,
+	    Part0 = part0,
 		Part1 = part1,
 		C0 = c0,
-		C1 = c1,
-	}
+		C1 = c1
+		})
 	return w
 end
 function clerp(a, b, t)
@@ -79,10 +87,8 @@ function PlayAnimationFromTable(table, speed, bool)
 		end
 	end
 end
-ArtificialHB = Create("BindableEvent", script){
-	Parent = script,
-	Name = "Heartbeat",
-}
+ArtificialHB = Create("BindableEvent", script, {Parent = script, Name = "Heartbeat"})
+
 script:WaitForChild("Heartbeat")
 frame = 1 / 30
 tf = 0
@@ -124,7 +130,7 @@ end
 CFuncs = {	
 	["Part"] = {
 		Create = function(Parent, Material, Reflectance, Transparency, BColor, Name, Size)
-			local Part = Create("Part"){
+			local Part = Create("Part",Parent, {
 				Parent = Parent,
 				Reflectance = Reflectance,
 				Transparency = Transparency,
@@ -134,7 +140,7 @@ CFuncs = {
 				Name = Name,
 				Size = Size,
 				Material = Material,
-			}
+			})
 --remove these lines if u want it purple--------
 if Part.BrickColor == BrickColor.new("Mulberry") then
 Part.BrickColor = BrickColor.new("Crimson")
@@ -152,11 +158,7 @@ end
 	};
 	["Mesh"] = {
 		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
-			local Msh = Create(Mesh){
-				Parent = Part,
-				Offset = OffSet,
-				Scale = Scale,
-			}
+			local Msh = Create(Mesh,Part,{Scale = Scale})
 			if Mesh == "SpecialMesh" then
 				Msh.MeshType = MeshType
 				Msh.MeshId = MeshId
@@ -166,11 +168,7 @@ end
 	};
 	["Mesh"] = {
 		Create = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
-			local Msh = Create(Mesh){
-				Parent = Part,
-				Offset = OffSet,
-				Scale = Scale,
-			}
+			local Msh = Create(Mesh,Part, {Scale = Scale})
 			if Mesh == "SpecialMesh" then
 				Msh.MeshType = MeshType
 				Msh.MeshId = MeshId
@@ -180,34 +178,29 @@ end
 	};
 	["Weld"] = {
 		Create = function(Parent, Part0, Part1, C0, C1)
-			local Weld = Create("Weld"){
+			local Weld = Create("Weld",Parent, {
 				Parent = Parent,
 				Part0 = Part0,
 				Part1 = Part1,
 				C0 = C0,
 				C1 = C1,
-			}
+			})
 			return Weld
 		end;
 	};
 ["Sound"] = {
 		Create = function(id, par, vol, pit) 
 			coroutine.resume(coroutine.create(function()
-				local S = Create("Sound"){
-					Volume = vol,
-					Pitch = pit or 1,
-					SoundId = id,
-					Parent = par or workspace,
-				}
+				local S = Create("Sound",par or workspace,{Volume = vol,Pitch = pit or 1,SoundId = id,Parent = par or workspace})
 				wait() 
 				S:play() 
 				game:GetService("Debris"):AddItem(S, 6)
 			end))
 		end;
-	};
+	}; 
 	["ParticleEmitter"] = {
 		Create = function(Parent, Color1, Color2, LightEmission, Size, Texture, Transparency, ZOffset, Accel, Drag, LockedToPart, VelocityInheritance, EmissionDirection, Enabled, LifeTime, Rate, Rotation, RotSpeed, Speed, VelocitySpread)
-			local fp = Create("ParticleEmitter"){
+			local fp = Create("ParticleEmitter",Parent, {
 				Parent = Parent,
 				Color = ColorSequence.new(Color1, Color2),
 				LightEmission = LightEmission,
@@ -227,7 +220,7 @@ end
 				RotSpeed = RotSpeed,
 				Speed = Speed,
 				VelocitySpread = VelocitySpread,
-			}
+			})
 			return fp
 		end;
 	};
@@ -714,14 +707,14 @@ function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSo
 				return
 			end
 		end
-		local c = Create("ObjectValue"){
+		local c = Create("ObjectValue",h,{
 			Name = "creator",
 			Value = game:service("Players").LocalPlayer,
 			Parent = h,
-		}
+		})
 		game:GetService("Debris"):AddItem(c, .5)
 		if HitSound ~= nil and HitPitch ~= nil then
-			CFuncs.Sound.Create(HitSound, hit, 1, HitPitch) 
+			CFuncs.Sound.Create(HitSound, hit, {Volume= 1, Pitch= HitPitch}) 
 		end
 		local Damage = math.random(minim, maxim)
 		local blocked = false
@@ -750,37 +743,37 @@ function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSo
 				HHumanoid.PlatformStand = false
 			end), hum)
 			local angle = (hit.Position - (Property.Position + Vector3.new(0, 0, 0))).unit
-			local bodvol = Create("BodyVelocity"){
+			local bodvol = Create("BodyVelocity",hit,{
 				velocity = angle * knockback,
 				P = 5000,
 				maxForce = Vector3.new(8e+003, 8e+003, 8e+003),
 				Parent = hit,
-			}
-			local rl = Create("BodyAngularVelocity"){
+			})
+			local rl = Create("BodyAngularVelocity",hit{
 				P = 3000,
 				maxTorque = Vector3.new(500000, 500000, 500000) * 50000000000000,
 				angularvelocity = Vector3.new(math.random(-10, 10), math.random(-10, 10), math.random(-10, 10)),
 				Parent = hit,
-			}
+			})
 			game:GetService("Debris"):AddItem(bodvol, .5)
 			game:GetService("Debris"):AddItem(rl, .5)
 		elseif Type == "Normal" then
-			local vp = Create("BodyVelocity"){
+			local vp = Create("BodyVelocity",workspace,{
 				P = 500,
 				maxForce = Vector3.new(math.huge, 0, math.huge),
 				velocity = Property.CFrame.lookVector * knockback + Property.Velocity / 1.05,
-			}
+			})
 			if knockback > 0 then
 				vp.Parent = hit.Parent.Torso
 			end
 			game:GetService("Debris"):AddItem(vp, .5)
 		elseif Type == "Up" then
-			local bodyVelocity = Create("BodyVelocity"){
+			local bodyVelocity = Create("BodyVelocity",workspace,{
 				velocity = Vector3.new(0, 20, 0),
 				P = 5000,
 				maxForce = Vector3.new(8e+003, 8e+003, 8e+003),
 				Parent = hit,
-			}
+			})
 			game:GetService("Debris"):AddItem(bodyVelocity, .5)
 		elseif Type == "DarkUp" then
 			coroutine.resume(coroutine.create(function()
@@ -789,36 +782,36 @@ function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSo
 					Effects.Block.Create(BrickColor.new("Black"), hit.Parent.Torso.CFrame, 5, 5, 5, 1, 1, 1, .08, 1)
 				end
 			end))
-			local bodyVelocity = Create("BodyVelocity"){
+			local bodyVelocity = Create("BodyVelocity",hit,{
 				velocity = Vector3.new(0, 20, 0),
 				P = 5000,
 				maxForce = Vector3.new(8e+003, 8e+003, 8e+003),
 				Parent = hit,
-			}
+			})
 			game:GetService("Debris"):AddItem(bodyVelocity, 1)
 		elseif Type == "Snare" then
-			local bp = Create("BodyPosition"){
+			local bp = Create("BodyPosition",hit.Parent.Torso,{
 				P = 2000,
 				D = 100,
 				maxForce = Vector3.new(math.huge, math.huge, math.huge),
 				position = hit.Parent.Torso.Position,
 				Parent = hit.Parent.Torso,
-			}
+			})
 			game:GetService("Debris"):AddItem(bp, 1)
 		elseif Type == "Freeze" then
-			local BodPos = Create("BodyPosition"){
+			local BodPos = Create("BodyPosition",hit.Parent.Torso,{
 				P = 50000,
 				D = 1000,
 				maxForce = Vector3.new(math.huge, math.huge, math.huge),
 				position = hit.Parent.Torso.Position,
 				Parent = hit.Parent.Torso,
-			}
-			local BodGy = Create("BodyGyro") {
+			})
+			local BodGy = Create("BodyGyro",hit.Parent.Torso, {
 				maxTorque = Vector3.new(4e+005, 4e+005, 4e+005) * math.huge ,
 				P = 20e+003,
 				Parent = hit.Parent.Torso,
 				cframe = hit.Parent.Torso.CFrame,
-			}
+			})
 			hit.Parent.Torso.Anchored = true
 			coroutine.resume(coroutine.create(function(Part) 
 				swait(1.5)
@@ -827,17 +820,17 @@ function Damage(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSo
 			game:GetService("Debris"):AddItem(BodPos, 3)
 			game:GetService("Debris"):AddItem(BodGy, 3)
 		end
-		local debounce = Create("BoolValue"){
+		local debounce = Create("BoolValue",hit.Parent,{
 			Name = "DebounceHit",
 			Parent = hit.Parent,
 			Value = true,
-		}
+		})
 		game:GetService("Debris"):AddItem(debounce, Delay)
-		c = Create("ObjectValue"){
+		c = Create("ObjectValue",h,{
 			Name = "creator",
 			Value = Player,
 			Parent = h,
-		}
+		})
 		game:GetService("Debris"):AddItem(c, .5)
 	end
 end
@@ -849,12 +842,12 @@ function ShowDamage(Pos, Text, Time, Color)
 	local Color = (Color or Color3.new(1, 0, 1))
 	local EffectPart = CFuncs.Part.Create(workspace, "SmoothPlastic", 0, 1, BrickColor.new(Color), "Effect", Vector3.new(0, 0, 0))
 	EffectPart.Anchored = true
-	local BillboardGui = Create("BillboardGui"){
+	local BillboardGui = Create("BillboardGui",EffectPart,{
 		Size = UDim2.new(3, 0, 3, 0),
 		Adornee = EffectPart,
 		Parent = EffectPart,
-	}
-	local TextLabel = Create("TextLabel"){
+	})
+	local TextLabel = Create("TextLabel",BillboardGui,{
 		BackgroundTransparency = 1,
 		Size = UDim2.new(1, 0, 1, 0),
 		Text = Text,
@@ -862,7 +855,7 @@ function ShowDamage(Pos, Text, Time, Color)
 		TextColor3 = Color,
 		TextScaled = true,
 		Parent = BillboardGui,
-	}
+	})
 	game.Debris:AddItem(EffectPart, (Time))
 	EffectPart.Parent = game:GetService("Workspace")
 	delay(0, function()
@@ -2323,10 +2316,8 @@ Part=CFuncs.Part.Create(m,Enum.Material.Plastic,0,0,"Really black","Part",Vector
 Part.Shape = "Cylinder"
 PartWeld=CFuncs.Weld.Create(m,TorsoHandle,Part,CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),CFrame.new(-0.421798706, 0.302509308, -0.0484103411, -0.000242504699, 0.00010346956, -1, -1, 8.66204355e-005, 0.000236734166, 8.79392246e-005, 0.999999881, 0.000103448117))
 end
-EffectModel = Create("Model"){
-	Parent = Character,
-	Name = "Effects",
-}
+EffectModel = Create("Model",Character)
+
 Effects = {
 	Block = {
 		Create = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay, Type)
@@ -3116,27 +3107,77 @@ aa3 = function()
 	
 	attack = false
 end
+
+function FindTable(Table, Name)
+	for i,v in pairs(Table) do
+		if v == Name then
+			return true
+		end end
+	return false
+end
+function GetInTable(Table, Name)
+	for i = 1, #Table do
+		if Table[i] == Name then
+			return i
+		end end
+return false end
+
 Watergunshoot = function()
 	rest = 0
 	attack = true
+local savedcolors = {1,2,3,4,5,6,7,8}	
+
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v.ClassName == "Model" and v.Name == "Model" then
+for i,x in pairs(v:GetDescendants()) do
+if x.ClassName == "Part" and x.Name == "Claw" then
+table.insert(savedcolors,1,x.BrickColor)
+end
+if x.ClassName == "Part" and x.Name == "Eye1" then
+table.insert(savedcolors,2,x.BrickColor)
+end
+if x.Name == "Eye2" then
+table.insert(savedcolors,3,x.BrickColor)
+end
+if x.Name == "Handle1" then 
+table.insert(savedcolors,4,x.BrickColor)	
+end
+if x.Name == "Handle2" then
+table.insert(savedcolors,5,x.BrickColor)
+end
+if x.Name == "Neon" then 
+table.insert(savedcolors,6,x.BrickColor)
+end
+if x.Name == "Sphere" then
+table.insert(savedcolors,7,x.BrickColor)
+end
+if x.Name == "W3d" then
+table.insert(savedcolors,8,x.BrickColor)
+end
+end
+end
+end 
+
+wait()
+print(table.concat(savedcolors))
+wait()
+
 
 
 
 ref = New("Part",RuinedHand3,"ref",{BrickColor = BrickColor.Random(),Material = Enum.Material.SmoothPlastic,Transparency = 1,Transparency = 1,Size = Vector3.new(0.200000003, 0.200000003, 0.200000003),CFrame = CFrame.new(-63.7534943, 0.396845818, -9.92230225, -1, 0, 0, 0, 0.00350399944, -0.999993861, 0, -0.999993861, -0.00350399921),CanCollide = false,Color = Color3.new(0.0666667, 0.0666667, 0.0666667),})
-function yes() 
-for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-if v.ClassName == "Part" and v.Name == "RuinedHand3"
-then
-v.BrickColor = BrickColor.Random()
-end
-end	
-end
-
-coroutine.resume(coroutine.create(yes()))
-
 mot = New("Weld",ref,"mot",{Part0 = ref,Part1 = RootPart,C0 = CFrame.new(0, 0, 0, -1, 0, 0, 0, 0.00350399944, -0.999993861, 0, -0.999993861, -0.00350399921),C1 = CFrame.new(0.16015625, 0.531864166, -3.29763794, -1, 0, 0, 0, 1, 0, 0, 0, -1),})
 for i = 0, 1, 0.1 do
 swait()
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v.ClassName == "Model" and v.Name == "Model" then
+for i,x in pairs(v:GetDescendants()) do
+if x.ClassName == "Part" and x.Name == "Claw" or x.Name == "Eye1" or x.Name == "Eye2" or x.Name == "Handle1" or x.Name == "Handle2"  or x.Name == "Neon" or x.Name == "Sphere" or x.Name == "W3d" then
+x.BrickColor = BrickColor.Random()
+end
+end
+end 
+end
 PlayAnimationFromTable({
 CFrame.new(0, -0.00210787077, -0.0458669737, 1, 0, 0, 0, 0.99578476, 0.0917209759, 0, -0.0917209759, 0.99578476) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
 CFrame.new(0, 1.40754497, 0.206716642, 1, 0, -0, 0, 0.975682199, -0.219190434, 0, 0.219190434, 0.975682199) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
@@ -3153,6 +3194,15 @@ CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=240517975", ref, 1, 1)
 CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=136007472", ref, 1, .6)	
 for i = 0, 10, 0.1 do
 swait()
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v.ClassName == "Model" and v.Name == "Model" then
+for i,x in pairs(v:GetDescendants()) do
+if x.ClassName == "Part" and x.Name == "Claw" or x.Name == "Eye1" or x.Name == "Eye2" or x.Name == "Handle1" or x.Name == "Handle2"  or x.Name == "Neon" or x.Name == "Sphere" or x.Name == "W3d" then
+x.BrickColor = BrickColor.Random()
+end
+end
+end 
+end
 PlayAnimationFromTable({
 CFrame.new(0, -0.00210938277, -0.0458677933, 1, 0, 0, 0, 0.99578476, 0.0917209759, 0, -0.0917209759, 0.99578476) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
 CFrame.new(0, 1.46350527, 0.0670536235, 1, 0, 0, 0, 0.998798668, -0.0490033403, 0, 0.0490033403, 0.998798668) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
@@ -3178,6 +3228,15 @@ end
 end)()
 for i = 0, 10, 0.1 do
 swait()
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v.ClassName == "Model" and v.Name == "Model" then
+for i,x in pairs(v:GetDescendants()) do
+if x.ClassName == "Part" and x.Name == "Claw" or x.Name == "Eye1" or x.Name == "Eye2" or x.Name == "Handle1" or x.Name == "Handle2"  or x.Name == "Neon" or x.Name == "Sphere" or x.Name == "W3d" then
+x.BrickColor = BrickColor.Random()
+end
+end
+end 
+end
 PlayAnimationFromTable({
 CFrame.new(0, 0.0425720811, 0.0879573151, 1, 0, -0, 0, 0.983600378, -0.180362046, 0, 0.180362061, 0.983600378) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
 CFrame.new(0, 1.53438246, -0.0555603988, 1, 0, -0, 0, 0.999988079, 0.00491549075, -0, -0.00491547585, 0.999988079) * CFrame.new(0, 0, 0) * CFrame.Angles(0, 0, 0), 
@@ -3192,6 +3251,38 @@ Torso.Velocity = RootPart.CFrame.lookVector * -16
 end
 Humanoid.WalkSpeed = Humanoid.WalkSpeed + 10
 ref:Remove()
+
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if v.ClassName == "Model" and v.Name == "Model" then
+for i,x in pairs(v:GetDescendants()) do
+if x.ClassName == "Part" and x.Name == "Claw" then
+x.BrickColor = savedcolors[1]
+end
+if x.ClassName == "Part" and x.Name == "Eye1" then
+x.BrickColor = savedcolors[2]
+end
+if x.Name == "Eye2" then
+x.BrickColor = savedcolors[3]
+end
+if x.Name == "Handle1" then 
+x.BrickColor = savedcolors[4]
+end
+if x.Name == "Handle2" then
+x.BrickColor = savedcolors[5]
+end
+if x.Name == "Neon" then 
+x.BrickColor = savedcolors[6]
+end
+if x.Name == "Sphere" then
+x.BrickColor = savedcolors[7]
+end
+if x.Name == "W3d" then
+x.BrickColor = savedcolors[8]
+end
+end
+end
+end 
+
 attack = false
 end
 Ohgreatfuckeryoujustfuckingedsuicideohwaitdidumeanallahuakbarohyesumean911oyesilykit = function()-- rude
@@ -4427,8 +4518,8 @@ LeftArm.Transparency = 1
 RightLeg.Transparency = 1
 LeftLeg.Transparency = 1
 wait(6)
-CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=136007472", Character, 1, 0.7)
-Effects.Block.Create(BrickColor.new("Really red"), Torso.CFrame, 60, 60, 60, -.13, -.13, -.13, 0.008)
+CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=136007472", Character, {Volume = 1, Pitch = 0.7})
+Effects.Block.Create(BrickColor.new("Really red"), Torso.CFrame, "ok", {60, 60, 60, -.13, -.13, -.13, 0.008})
 wait(4)
 for _,v in pairs(Model:children()) do
 if v:IsA("Part") then
@@ -4440,10 +4531,10 @@ if v:IsA("Accessory") then
 v.Handle.Transparency = 0
 end
 end
-CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=132164034", Character, 1.2, 1)
-CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=197161452", Character, 1.2, 1)
-Effects.Sphere.Create(BrickColor.new("Really red"), RootPart.CFrame, 3, 3, 3, 4, 4, 4, 0.01)
-Effects.Sphere.Create(BrickColor.new("Really red"), RootPart.CFrame, 3, 3, 3, 5, 5, 5, 0.01)
+CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=132164034", Character, {Volume = 1.2, Pitch = 1})
+CFuncs["Sound"].Create("http://www.roblox.com/asset/?id=197161452", Character, {Volume = 1.2, Pitch = 1})
+Effects.Sphere.Create(BrickColor.new("Really red"), RootPart.CFrame, "reee", {3, 3, 3, 4, 4, 4, 0.01})
+Effects.Sphere.Create(BrickColor.new("Really red"), RootPart.CFrame, "reee", {3, 3, 3, 5, 5, 5, 0.01})
 Head.Transparency = 0
 Torso.Transparency = 0
 RightArm.Transparency = 0
@@ -4512,12 +4603,12 @@ warn("If you remove credits, i will kill you. ~by grgrgry21 and Dooven, Credit t
 a = function()
 	   looprevive = true
 	   print'looprevived'
-	   Effects.Sphere.Create(BrickColor.new("Really red"), RootPart.CFrame, 8, 8, 8, 1, 1, 1, 0.06)
+	   Effects.Sphere.Create(BrickColor.new("Really red"), "ree", RootPart.CFrame, 8, 8, 8, 1, 1, 1, 0.06)
 end
 b = function()
 		looprevive = false
 	   print'unlooprevived'
-	   Effects.Sphere.Create(BrickColor.new("Really black"), RootPart.CFrame, 8, 8, 8, 1, 1, 1, 0.06)
+	   Effects.Sphere.Create(BrickColor.new("Really black"), "reee", RootPart.CFrame, 8, 8, 8, 1, 1, 1, 0.06)
 end
 Mouse.KeyDown:connect(function(k)
 	k = k:lower()
@@ -4869,7 +4960,7 @@ end
 										Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
 										Mesh = Thing[7]
 										Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
-										Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+										Thing[1].Transparency = 0
 									else
 										if Thing[2] == "Block2" then
 											Thing[1].CFrame = Thing[1].CFrame
@@ -4885,21 +4976,21 @@ end
 												if Thing[2] == "Cylinder" then
 													Mesh = Thing[7]
 													Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
-													Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+													Thing[1].Transparency = 0
 												else
 													if Thing[2] == "Blood" then
 														Mesh = Thing[7]
 														Thing[1].CFrame = Thing[1].CFrame * CFrame.new(0, 0.5, 0)
 														Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
-														Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+														Thing[1].Transparency = " "..Thing[1].Transparency + Thing[2].Transparency
 													else
 														if Thing[2] == "Elec" then
 															Mesh = Thing[10]
 															Mesh.Scale = Mesh.Scale + Vector3.new(Thing[7], Thing[8], Thing[9])
-															Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+															Thing[1].Transparency = " "..Thing[1].Transparency + Thing[2].Transparency
 														else
 															if Thing[2] == "Disappear" then
-																Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+																Thing[1].Transparency = " "..Thing[1].Transparency + Thing[2].Transparency
 															end
 														end
 													end
